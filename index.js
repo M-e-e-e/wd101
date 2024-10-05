@@ -35,31 +35,6 @@ const saved=(event)=>{
 
     const accepted=document.getElementById("accept").checked;
 
-    const today=new Date();
-    const checkDate=new Date(dob);
-    let age=today.getFullYear()-checkDate.getFullYear();
-    const monthDiff=today.getMonth()-checkDate.getMonth();
-    const dayDiff=today.getDate()-checkDate.getDate();
-    
-    if (monthDiff<0||(monthDiff===0&&dayDiff<0)) 
-    {
-        age--;
-    }
-    let w=document.getElementById("warn");
-    if(age<18)
-    {
-        let d=new Date();
-        d.setFullYear(today.getFullYear()-18);
-        alert("Date of birth must be $(d) or earlier.")
-        return;
-    } 
-    else if(age>55){
-        let d=new Date();
-        d.setFullYear(today.getFullYear()-55);
-        alert("Date of birth must be $(d) or later.");
-        return;
-    }
-
     const entry={
         name,email,password,dob,accepted
     };
@@ -72,4 +47,34 @@ const saved=(event)=>{
 
 
 form.addEventListener("submit",saved);
+
+const dobInput=document.getElementById("dob");
+dobInput.addEventListener("input",()=>{
+    const val=dobInput.value;
+    const today=new Date();
+    const checkDate=new Date(val);
+    let age=today.getFullYear()-checkDate.getFullYear();
+    const monthDiff=today.getMonth()-checkDate.getMonth();
+    const dayDiff=today.getDate()-checkDate.getDate();
+    
+    if (monthDiff<0||(monthDiff===0&&dayDiff<0)) 
+    {
+        age--;
+    }
+    
+    
+    if(age<18)
+    {
+        let d=new Date();
+        d.setFullYear(today.getFullYear()-18);
+        dobInput.setCustomValidity(`Date of birth must be ${d.getDate()}/${d.getMonth()}/${d.getFullYear()} or earlier.`);
+        dobInput.reportValidity();
+    } 
+    else if(age>55){
+        let d=new Date();
+        d.setFullYear(today.getFullYear()-55);
+        dobInput.setCustomValidity(`Date of birth must be ${d.getDate()}/${d.getMonth()}/${d.getFullYear()} or later.`);
+        dobInput.reportValidity();
+    }
+})
 
