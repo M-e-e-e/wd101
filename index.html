@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col items-center">
+    <div class="flex items-center justify-center p-10">
+        <div class="bg-white w-[500px] p-6 rounded-md shadow-md">
+            <h3 class="text-3xl text-center font-bold pb-5">Registration  Form</h3>
+            <form id="form">
+                <label for="name" class="inline-block font-medium text-black w-[130px]">Name:</label>
+                <input required type="text" id="name" name="name" class="bg-gray-100 pl-4 p-2 m-3 inline-block rounded-md shadow-md placeholder-gray-500" placeholder="Enter your full name">
+                <br>
+                <label for="email" class="inline-block font-medium text-black w-[130px]">Email:</label>
+                <input required type="email" id="email" name="email" class="bg-gray-100 pl-4 p-2 m-3 inline-block rounded-md shadow-md placeholder-gray-500" placeholder="Enter your email id">
+                <br>
+                <label for="password" class="inline-block font-medium text-black w-[130px]">Password:</label>
+                <input required type="password" id="password" name="password" class="bg-gray-100 pl-4 p-2 m-3 inline-block rounded-md shadow-md placeholder-gray-500" placeholder="Enter your password">
+                <br>
+                <label for="dob" class="inline-block font-medium text-black w-[130px]">Date of Birth:</label>
+                <input required type="date" id="dob" name="dob" class="bg-gray-100 pl-4 p-2 m-3 inline-block rounded-md shadow-md ">
+                <br>
+                <label for="accept" class="inline-block font-medium text-black">Accept Terms and Conditions</label>
+                <input required type="checkbox" id="accept" name="accept" class="m-4">
+                <br>
+                <div class="flex justify-center">
+                    <button type="submit" id="submit" class="rounded-md shadow-md bg-green-500 text-white hover:bg-green-400 p-2 px-3">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-center p-10"></div>
+        <div class="bg-white w-[700px] p-6 rounded-md shadow-md">
+            <h3 class="text-3xl text-center font-bold pb-5">Entries</h3>
+            <table class="w-full">
+                <tr>
+                    <th class="p-3">Name</th>
+                    <th class="p-3">Email</th>
+                    <th class="p-3">Password</th>
+                    <th class="p-3">Dob</th>
+                    <th class="p-3">Accepted terms?</th>
+                </tr>
+                <tbody class="text-center" id="rowEntries"></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
