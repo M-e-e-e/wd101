@@ -17,10 +17,10 @@ const display=()=>{
     const toSend=data.map((entry)=>{
         const name=`<td class="p-3">${entry.name}</td>`;
         const email=`<td class="p-3">${entry.email}</td>`;
-        const password=`<td class="p-3">${entry.password}</td>`;
+        const pass=`<td class="p-3">${entry.password}</td>`;
         const dob=`<td class="p-3">${entry.dob}</td>`;
         const accept=`<td class="p-3">${entry.accepted}</td>`;
-        const row=`<tr>${name} ${email} ${dob} ${accept}</tr>`;
+        const row=`<tr>${name} ${email} ${pass} ${dob} ${accept}</tr>`;
         return row;
     }).join("\n");
     document.getElementById("rowEntries").innerHTML=toSend;
@@ -28,6 +28,7 @@ const display=()=>{
 
 const saved=(event)=>{
     event.preventDefault();
+    entries=retrieve();
     const name=document.getElementById("name").value;
     const email=document.getElementById("email").value;
     const password=document.getElementById("password").value;
@@ -75,6 +76,9 @@ dobInput.addEventListener("input",()=>{
         d.setFullYear(today.getFullYear()-55);
         dobInput.setCustomValidity(`Date of birth must be ${d.getDate()}/${d.getMonth()}/${d.getFullYear()} or later.`);
         dobInput.reportValidity();
+    }
+    else{
+        dobInput.setCustomValidity("");
     }
 })
 
