@@ -46,7 +46,7 @@ const saved=(event)=>{
     display();
 }
 
-
+display();
 form.addEventListener("submit",saved);
 
 const dobInput=document.getElementById("dob");
